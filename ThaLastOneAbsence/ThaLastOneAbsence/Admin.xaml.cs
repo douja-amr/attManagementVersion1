@@ -85,6 +85,8 @@ namespace ThaLastOneAbsence
             EnregistrerStudent.Visibility = Visibility.Hidden;
             ModifirerStudent.Visibility = Visibility.Hidden;
             EnregistrerModificationStudent.Visibility = Visibility.Hidden;
+            SupprimerStudentJEE.Visibility = Visibility.Hidden;
+            SupprimerStudentFEBE.Visibility = Visibility.Hidden;
 
 
             d.connecter();
@@ -308,6 +310,8 @@ namespace ThaLastOneAbsence
             EnregistrerStudent.Visibility = Visibility.Hidden;
             ModifirerStudent.Visibility = Visibility.Hidden;
             EnregistrerModificationStudent.Visibility = Visibility.Hidden;
+            SupprimerStudentJEE.Visibility = Visibility.Hidden;
+            SupprimerStudentFEBE.Visibility = Visibility.Hidden;
 
 
 
@@ -448,6 +452,8 @@ namespace ThaLastOneAbsence
             txtClasse.Visibility = Visibility.Hidden;
             lblClasse.Visibility = Visibility.Hidden;
             butEnregister.Visibility = Visibility.Hidden;
+            SupprimerStudentJEE.Visibility = Visibility.Hidden;
+            SupprimerStudentFEBE.Visibility = Visibility.Hidden;
 
             d.connecter();
             d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 1 ";
@@ -608,6 +614,8 @@ namespace ThaLastOneAbsence
             txtClasse.Visibility = Visibility.Hidden;
             lblClasse.Visibility = Visibility.Hidden;
             butEnregister.Visibility = Visibility.Hidden;
+            SupprimerStudentJEE.Visibility = Visibility.Visible;
+            SupprimerStudentFEBE.Visibility = Visibility.Hidden;
 
             d.connecter();
             d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 2 ";
@@ -616,6 +624,19 @@ namespace ThaLastOneAbsence
             d.dat.Load(d.dr);
             DataGridApprennentJEE.ItemsSource = d.dat.DefaultView;
 
+        }
+        private void SupprimerStudentJEE_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView row = DataGridApprennentJEE.SelectedItem as DataRowView;
+            var id = row.Row[0].ToString();
+
+            d.connecter();
+            d.cmd.CommandText = "DELETE FROM Student WHERE StudentId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennentJEE.ItemsSource = d.dat.DefaultView;
+            d.dr.Close();
         }
         //********************************************************* Apprennent FEBE ****************************************************************************
 
@@ -658,6 +679,8 @@ namespace ThaLastOneAbsence
             txtClasse.Visibility = Visibility.Hidden;
             lblClasse.Visibility = Visibility.Hidden;
             butEnregister.Visibility = Visibility.Hidden;
+            SupprimerStudentJEE.Visibility = Visibility.Hidden;
+            SupprimerStudentFEBE.Visibility = Visibility.Visible;
 
             d.connecter();
             d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 3 ";
@@ -665,6 +688,20 @@ namespace ThaLastOneAbsence
             d.dr = d.cmd.ExecuteReader();
             d.dat.Load(d.dr);
             DataGridApprennentFEBE.ItemsSource = d.dat.DefaultView;
+
+        }
+        private void SupprimerStudentFEBE_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView row = DataGridApprennentFEBE.SelectedItem as DataRowView;
+            var id = row.Row[0].ToString();
+
+            d.connecter();
+            d.cmd.CommandText = "DELETE FROM Student WHERE StudentId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennentFEBE.ItemsSource = d.dat.DefaultView;
+            d.dr.Close();
 
         }
 
@@ -697,5 +734,7 @@ namespace ThaLastOneAbsence
 
             }
         }
+
+        
     }
 }
