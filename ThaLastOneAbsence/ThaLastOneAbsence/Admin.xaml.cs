@@ -53,7 +53,7 @@ namespace ThaLastOneAbsence
             txtPassword.Visibility = Visibility.Hidden;
             txtdateNaissance.Visibility = Visibility.Hidden;
             txtClasse.Visibility = Visibility.Hidden;
-            txtFormateur.Visibility = Visibility.Hidden;
+            txFormateurId.Visibility = Visibility.Hidden;
             txtRoleld.Visibility = Visibility.Hidden;
             lblFullname.Visibility = Visibility.Hidden;
             lblEmail.Visibility = Visibility.Hidden;
@@ -65,7 +65,7 @@ namespace ThaLastOneAbsence
             butVider.Visibility = Visibility.Hidden;
             lblClasse.Visibility = Visibility.Hidden;
             lblFourmateur.Visibility = Visibility.Hidden;
-            lblFormateurId.Visibility = Visibility.Hidden;
+            lblFourmateur.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             butEnregister.Visibility = Visibility.Hidden;
             butSupprimer.Visibility = Visibility.Visible;
@@ -288,7 +288,7 @@ namespace ThaLastOneAbsence
             lblAnnée.Visibility = Visibility.Hidden;
             txtdateNaissance.Visibility = Visibility.Hidden;
             lbldateNaissance.Visibility = Visibility.Hidden;
-            lblFormateurId.Visibility = Visibility.Hidden;
+            lblFourmateur.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             butEnregister.Visibility = Visibility.Hidden;
             butAjouter.Visibility = Visibility.Hidden;
@@ -432,7 +432,7 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            lblFormateurId.Visibility = Visibility.Hidden;
+            lblFourmateur.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
@@ -445,6 +445,9 @@ namespace ThaLastOneAbsence
             EnregistrerModificationStudent.Visibility = Visibility.Hidden;
             SupprimerStudent.Visibility = Visibility.Visible;
             AjouterSecretaire.Visibility = Visibility.Hidden;
+            txtClasse.Visibility = Visibility.Hidden;
+            lblClasse.Visibility = Visibility.Hidden;
+            butEnregister.Visibility = Visibility.Hidden;
 
             d.connecter();
             d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 1 ";
@@ -471,13 +474,14 @@ namespace ThaLastOneAbsence
             lbldateNaissance.Visibility = Visibility.Visible;
             txtClasse.Visibility = Visibility.Visible;
             lblClasse.Visibility = Visibility.Visible;
-            lblFormateurId.Visibility = Visibility.Visible;
+            lblFourmateur.Visibility = Visibility.Visible;
             txFormateurId.Visibility = Visibility.Visible;
             butVider.Visibility = Visibility.Visible;
             EnregistrerStudent.Visibility = Visibility.Visible;
             AjouterStudent.Visibility = Visibility.Hidden;
             ModifirerStudent.Visibility = Visibility.Hidden;
             SupprimerStudent.Visibility = Visibility.Hidden;
+            butEnregister.Visibility = Visibility.Hidden;
 
         }
 
@@ -524,7 +528,7 @@ namespace ThaLastOneAbsence
             lbldateNaissance.Visibility = Visibility.Visible;
             txtClasse.Visibility = Visibility.Visible;
             lblClasse.Visibility = Visibility.Visible;
-            lblFormateurId.Visibility = Visibility.Visible;
+            lblFourmateur.Visibility = Visibility.Visible;
             txFormateurId.Visibility = Visibility.Visible;
             butVider.Visibility = Visibility.Visible;
             EnregistrerStudent.Visibility = Visibility.Hidden;
@@ -532,6 +536,7 @@ namespace ThaLastOneAbsence
             ModifirerStudent.Visibility = Visibility.Hidden;
             EnregistrerModificationStudent.Visibility = Visibility.Visible;
             SupprimerStudent.Visibility = Visibility.Hidden;
+            butEnregister.Visibility = Visibility.Hidden;
         }
         private void EnregistrerModificationStudent_Click(object sender, RoutedEventArgs e)
         {
@@ -588,7 +593,7 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            lblFormateurId.Visibility = Visibility.Hidden;
+            lblFourmateur.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
@@ -600,6 +605,9 @@ namespace ThaLastOneAbsence
             EnregistrerModificationStudent.Visibility = Visibility.Hidden;
             SupprimerStudent.Visibility = Visibility.Visible;
             AjouterSecretaire.Visibility = Visibility.Hidden;
+            txtClasse.Visibility = Visibility.Hidden;
+            lblClasse.Visibility = Visibility.Hidden;
+            butEnregister.Visibility = Visibility.Hidden;
 
             d.connecter();
             d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 2 ";
@@ -635,7 +643,7 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            lblFormateurId.Visibility = Visibility.Hidden;
+            lblFourmateur.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
@@ -647,6 +655,9 @@ namespace ThaLastOneAbsence
             EnregistrerModificationStudent.Visibility = Visibility.Hidden;
             SupprimerStudent.Visibility = Visibility.Visible;
             AjouterSecretaire.Visibility = Visibility.Hidden;
+            txtClasse.Visibility = Visibility.Hidden;
+            lblClasse.Visibility = Visibility.Hidden;
+            butEnregister.Visibility = Visibility.Hidden;
 
             d.connecter();
             d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 3 ";
